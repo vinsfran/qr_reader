@@ -40,9 +40,10 @@ class _HomePageBody extends StatelessWidget {
     final currentIndex = uiProvider.selectedMenuOpt;
 
     // TODO: Temporal leer la base de datos
-    final tempScan = new ScanModel(valor: 'http:// google.com');
+    final tempScan = new ScanModel(valor: 'http:// mca.gov.py');
+    tempScan.id = 3;
     // DbProvider.db.nuevoScan(tempScan);
-    DbProvider.db.getTodosScans().then(print);
+    DbProvider.db.updateScan(tempScan);
 
     switch (currentIndex) {
       case 0:

@@ -16,7 +16,7 @@ class MyApp extends StatelessWidget {
             create: (BuildContext context) => new UiProvider()),
       ],
       child: MaterialApp(
-        // debugShowCheckedModeBanner: false,
+        debugShowCheckedModeBanner: false,
         title: 'QR Reader',
         initialRoute: 'home',
         routes: {

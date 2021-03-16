@@ -88,4 +88,12 @@ class DbProvider {
 
     return res.isNotEmpty ? res.map((s) => ScanModel.fromJson(s)).toList() : [];
   }
+
+  Future<int> updateScan(ScanModel updateScan) async {
+    final db = await database;
+    final res = await db.update('Scans', updateScan.toJson(),
+        where: 'id = ?', whereArgs: [updateScan.id]);
+    print(res);
+    return res;
+  }
 }
