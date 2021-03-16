@@ -39,12 +39,6 @@ class _HomePageBody extends StatelessWidget {
     // Cambiar para mostrar la pagina respectiva
     final currentIndex = uiProvider.selectedMenuOpt;
 
-    // TODO: Temporal leer la base de datos
-    final tempScan = new ScanModel(valor: 'http:// mca.gov.py');
-    tempScan.id = 3;
-    // DbProvider.db.nuevoScan(tempScan);
-    DbProvider.db.updateScan(tempScan);
-
     switch (currentIndex) {
       case 0:
         return MapasPage();
