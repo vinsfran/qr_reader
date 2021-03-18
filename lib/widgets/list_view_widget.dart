@@ -11,15 +11,25 @@ class ListViewWidget extends StatelessWidget {
 
     return ListView.builder(
       itemCount: scans.length,
-      itemBuilder: (_, i) => ListTile(
-        leading: _getIcono(context, scans[i].tipo),
-        title: Text(scans[i].valor),
-        subtitle: Text(scans[i].id.toString()),
-        trailing: Icon(
-          Icons.keyboard_arrow_right,
-          color: Colors.grey,
+      itemBuilder: (_, i) => Dismissible(
+        key: UniqueKey(),
+        background: Container(
+          color: Colors.red,
         ),
-        onTap: () => print(scans[i].id),
+        onDismissed: (DismissDirection direction) {
+          Provider.of<ScanListProvider>(context, listen: false)
+              .borrarScanPorId(scans[i].id);
+        },
+        child: ListTile(
+          leading: _getIcono(context, scans[i].tipo),
+          title: Text(scans[i].valor),
+          subtitle: Text(scans[i].id.toString()),
+          trailing: Icon(
+            Icons.keyboard_arrow_right,
+            color: Colors.grey,
+          ),
+          onTap: () => print(scans[i].id),
+        ),
       ),
     );
   }
