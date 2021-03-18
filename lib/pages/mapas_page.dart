@@ -1,10 +1,10 @@
 import 'package:flutter/material.dart';
 
-import 'package:qr_reader/widgets/list_view_widget.dart';
+import 'package:qr_reader/widgets/scan_tiles_widget.dart';
 
 class MapasPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
-    return ListViewWidget();
+    return ScanTilesWidget(tipo: 'geo');
   }
 }

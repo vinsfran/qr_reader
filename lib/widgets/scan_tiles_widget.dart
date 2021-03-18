@@ -3,7 +3,11 @@ import 'package:provider/provider.dart';
 
 import 'package:qr_reader/providers/scan_list_provider.dart';
 
-class ListViewWidget extends StatelessWidget {
+class ScanTilesWidget extends StatelessWidget {
+  final String tipo;
+
+  const ScanTilesWidget({@required this.tipo});
+
   @override
   Widget build(BuildContext context) {
     final scanListProvider = Provider.of<ScanListProvider>(context);
@@ -21,7 +25,7 @@ class ListViewWidget extends StatelessWidget {
               .borrarScanPorId(scans[i].id);
         },
         child: ListTile(
-          leading: _getIcono(context, scans[i].tipo),
+          leading: _getIcono(context),
           title: Text(scans[i].valor),
           subtitle: Text(scans[i].id.toString()),
           trailing: Icon(
@@ -34,9 +38,9 @@ class ListViewWidget extends StatelessWidget {
     );
   }
 
-  Widget _getIcono(BuildContext context, String tipo) {
+  Widget _getIcono(BuildContext context) {
     IconData icono = Icons.map;
-    if (tipo == 'http') {
+    if (this.tipo == 'http') {
       icono = Icons.home_outlined;
     }
     return Icon(
