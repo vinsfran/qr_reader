@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import 'package:qr_reader/providers/scan_list_provider.dart';
+import 'package:qr_reader/utils/utils.dart';
 
 class ScanTilesWidget extends StatelessWidget {
   final String tipo;
@@ -32,7 +33,7 @@ class ScanTilesWidget extends StatelessWidget {
             Icons.keyboard_arrow_right,
             color: Colors.grey,
           ),
-          onTap: () => print(scans[i].id),
+          onTap: () => launchURL(context, scans[i]),
         ),
       ),
     );

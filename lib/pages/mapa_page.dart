@@ -1,10 +1,16 @@
 import 'package:flutter/material.dart';
+import 'package:qr_reader/providers/db_provider.dart';
 
 class MapaPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
+    final ScanModel scanModel = ModalRoute.of(context).settings.arguments;
+
     return Scaffold(
-      body: Center(child: Text('Mapa page')),
+      appBar: AppBar(
+        title: Text('Mapa'),
+      ),
+      body: Center(child: Text(scanModel.valor)),
     );
   }
 }
