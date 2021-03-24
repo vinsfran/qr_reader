@@ -51,6 +51,7 @@ class _MapaPageState extends State<MapaPage> {
         ],
       ),
       body: GoogleMap(
+        myLocationEnabled: true,
         myLocationButtonEnabled: true,
         mapType: mapType,
         markers: markers,
